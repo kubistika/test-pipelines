@@ -14,3 +14,10 @@ steps:
     pip3 install pytest
     python3 -m unittest discover
   displayName: 'Run tests'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
